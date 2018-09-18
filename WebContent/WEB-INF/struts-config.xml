@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="helloWorldForm" type="helloworld.HelloWorldForm"/>
+		<form-bean name="loginForm" type="form.LoginForm"/>
+		<form-bean name="customerForm" type="form.CustomerForm"/>
+		<form-bean name="cardForm" type="form.CardForm"/>
+	</form-beans>
+	
+	<action-mappings>
+		<action path="/helloWorld" type="helloworld.HelloWorldController" name="helloWorldForm">
+			<forward name="hello" path="/helloworld/HelloWorld.jsp"/>
+		</action>
+		<action name="loginForm" path="/login" type="controller.LoginController" >
+			<forward name="login" path="/login/login.jsp"/>
+			<forward name="home" path="/login/home.jsp"/>
+		</action>
+		<action name="customerForm" path="/customer" type="controller.CustomerController" >
+			<forward name="registerCustomer" path="/customer/registerCustomer.jsp"/>
+			<forward name="viewCustomer" path="/customer/viewCustomer.jsp"/>
+		</action>
+		<action name="cardForm" path="/card" type="controller.CardController" >
+			<forward name="openAdd" path="/card/add.jsp"/>
+			<forward name="openList" path="/card/list.jsp"/>
+			<forward name="openDetail" path="/card/detail.jsp"/>
+		</action>
+	</action-mappings>
+</struts-config>
